@@ -64,6 +64,7 @@ struct q3Island
 
 	r32 m_dt;
 	q3Vec3 m_gravity;
+	q3Vec3 m_wind;
 	i32 m_iterations;
 
 	bool m_allowSleep;

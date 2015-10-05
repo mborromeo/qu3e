@@ -114,6 +114,10 @@ public:
 	const q3Vec3 GetGravity( ) const;
 	void SetGravity( const q3Vec3& gravity );
 
+	// Gets and sets the global wind vector used during integration
+	const q3Vec3 GetWind( ) const;
+	void SetWind( const q3Vec3& wind );
+
 	// Removes all bodies from the scene.
 	void Shutdown( );
 
@@ -157,6 +161,7 @@ private:
 	q3Heap m_heap;
 
 	q3Vec3 m_gravity;
+	q3Vec3 m_wind;
 	r32 m_dt;
 	i32 m_iterations;
 

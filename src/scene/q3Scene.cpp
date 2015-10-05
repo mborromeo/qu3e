@@ -48,6 +48,7 @@ q3Scene::q3Scene( r32 dt, const q3Vec3& gravity, i32 iterations )
 	, m_newBox( false )
 	, m_allowSleep( true )
 	, m_enableFriction( true )
+	, m_wind(q3Vec3( r32( 0.0 ), r32( 0.0 ), r32( 0.0 ) ))
 {
 }
 
@@ -88,6 +89,7 @@ void q3Scene::Step( )
 	island.m_contactCount = 0;
 	island.m_dt = m_dt;
 	island.m_gravity = m_gravity;
+	island.m_wind = m_wind;
 	island.m_iterations = m_iterations;
 
 	// Build each active island and then solve each built island
@@ -321,6 +323,18 @@ const q3Vec3 q3Scene::GetGravity( ) const
 void q3Scene::SetGravity( const q3Vec3& gravity )
 {
 	m_gravity = gravity;
+}
+
+//--------------------------------------------------------------------------------------------------
+const q3Vec3 q3Scene::GetWind( ) const
+{
+	return m_wind;
+}
+
+//--------------------------------------------------------------------------------------------------
+void q3Scene::SetWind( const q3Vec3& wind )
+{
+	m_wind = wind;
 }
 
 //--------------------------------------------------------------------------------------------------

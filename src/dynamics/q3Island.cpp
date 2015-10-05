@@ -37,7 +37,7 @@
 //--------------------------------------------------------------------------------------------------
 void q3Island::Solve( )
 {
-	// Apply gravity
+	// Apply gravity and wind
 	// Integrate velocities and create state buffers, calculate world inertia
 	for ( i32 i = 0 ; i < m_bodyCount; ++i )
 	{
@@ -47,6 +47,7 @@ void q3Island::Solve( )
 		if ( body->m_flags & q3Body::eDynamic )
 		{
 			body->ApplyLinearForce( m_gravity * body->m_gravityScale );
+			body->ApplyLinearForce( m_wind );
 
 			// Calculate world space intertia tensor
 			q3Mat3 r = body->m_tx.rotation;
