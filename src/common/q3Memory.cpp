@@ -45,6 +45,7 @@ q3Stack::q3Stack( )
 //--------------------------------------------------------------------------------------------------
 q3Stack::~q3Stack( )
 {
+	q3Free( m_entries );
 	assert( m_index == 0 );
 	assert( m_entryCount == 0 );
 }
